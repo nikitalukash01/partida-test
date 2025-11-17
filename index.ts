@@ -1,4 +1,4 @@
-import { createExchangeClient } from "./src/api/index";
+import { createExchangeClient,createWebsocketClient } from "./src/api/index";
 import {
   calculateMidPrice,
   calculateSpreadPercent,
@@ -7,6 +7,7 @@ import "./src/api/Lbank/LbankWebsocket";
 import "dotenv/config";
 import { getRedisClient } from "./src/infrastructure/redis";
 
+const wsClient = createWebsocketClient();
 const exchangeClient = createExchangeClient();
 const cacheClient = getRedisClient();
 
